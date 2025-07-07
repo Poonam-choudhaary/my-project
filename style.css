@@ -1,0 +1,326 @@
+:root {
+  --accent: #43c6ac;
+  --accent2: #ffb6b9;
+  --accent3: #a1c4fd;
+  --accent4: #fcb69f;
+  --white: #fff;
+  --shadow: 0 4px 24px #a1c4fd33;
+  --glass: rgba(255,255,255,0.88);
+  --header-font: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  font-family: var(--header-font);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f8ffae 0%, #43c6ac 50%, #a1c4fd 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease-in-out infinite;
+  overflow-x: hidden;
+}
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  z-index: 10000;
+  width: 28px;
+  height: 28px;
+  background: rgba(67,198,172,0.23);
+  border: 2px solid #43c6ac;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: background 0.15s, border 0.15s, transform 0.08s;
+  mix-blend-mode: multiply;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--glass);
+  color: #191654;
+  padding: 1.2rem 2rem;
+  box-shadow: var(--shadow);
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+  margin-bottom: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 2.5px solid var(--accent3);
+  backdrop-filter: blur(10px);
+}
+.header-left h1 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 1.2px;
+}
+.blog-accent {
+  color: var(--accent);
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+/* GitHub Badge */
+.github-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 24px;
+  padding: 0.5rem 1.4rem 0.5rem 1rem;
+  text-decoration: none;
+  box-shadow: 0 2px 16px var(--accent3), 0 0 20px var(--accent2)77;
+  border: 2px solid #fff;
+  font-weight: 700;
+  color: #fff;
+  font-size: 1.13rem;
+  letter-spacing: 1px;
+  transition: box-shadow 0.2s, background 0.2s, transform 0.2s;
+}
+.github-badge:hover {
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  box-shadow: 0 4px 24px var(--accent2), 0 0 22px #fff;
+  transform: scale(1.07) rotate(-1deg);
+  color: #191654;
+}
+
+/* Button Section */
+.button-section {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0 1.5rem 0;
+}
+.button-section button {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: #fff;
+  border: none;
+  padding: 0.95rem 2.4rem;
+  border-radius: 32px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+  box-shadow: 0 2px 16px var(--accent3);
+  letter-spacing: 0.5px;
+  outline: none;
+}
+.button-section button:hover {
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  transform: translateY(-2px) scale(1.09);
+  box-shadow: 0 8px 28px var(--accent2);
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 430px;
+  margin: 0 auto;
+  background: var(--glass);
+  padding: 1.5rem 1.6rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 18px var(--accent3);
+  border: 1.5px solid #e0e0e0;
+  animation: fadeInUp 0.7s cubic-bezier(.39,.575,.565,1) both;
+}
+input, textarea {
+  padding: 0.8rem;
+  border: 1.5px solid var(--accent);
+  border-radius: 8px;
+  font-size: 1.08rem;
+  background: #f7fff7;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus, textarea:focus {
+  border-color: var(--accent2);
+  box-shadow: 0 2px 8px var(--accent2);
+  outline: none;
+}
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+form button {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: #fff;
+  border: none;
+  padding: 0.7rem 0;
+  border-radius: 20px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.4rem;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
+  box-shadow: 0 2px 12px var(--accent3);
+}
+form button:hover {
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  box-shadow: 0 4px 18px var(--accent2);
+  transform: scale(1.07) rotate(-2deg);
+}
+
+/* Blog Card Section */
+#blogCardSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+  margin: 1.7rem 0;
+  z-index: 2;
+  position: relative;
+}
+
+/* Saved Blogs Section */
+#savedBlogsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2.5rem 0 2rem 0;
+}
+#savedBlogsSection h2 {
+  text-align: center;
+  color: #191654;
+  margin-bottom: 1.2rem;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.accent-underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.2em;
+}
+.accent-underline:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 2px;
+  margin-top: 2px;
+  opacity: 0.7;
+}
+
+/* Saved Blogs Grid Centered */
+.saved-blogs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  align-items: stretch;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Saved Blog Card */
+.saved-blog-card {
+  background: linear-gradient(135deg, var(--accent4) 0%, var(--accent3) 100%);
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px var(--accent)33, 0 2px 8px var(--accent2)55;
+  padding: 1.3rem 1.2rem;
+  width: 100%;
+  max-width: 320px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.3s;
+  animation: fadeInUp 0.7s cubic-bezier(.39,.575,.565,1) both;
+}
+.saved-blog-card:hover {
+  transform: scale(1.04) translateY(-4px) rotate(-1deg);
+  box-shadow: 0 12px 36px var(--accent2)88, 0 4px 18px var(--accent)55;
+  background: linear-gradient(135deg, var(--accent3) 0%, var(--accent) 100%);
+}
+.saved-blog-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #191654;
+  font-size: 1.18rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.saved-blog-card p {
+  color: #333;
+  font-size: 1.02rem;
+  margin: 0 0 0.8rem 0;
+}
+.saved-blog-card button {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: #fff;
+  border: none;
+  padding: 0.44rem 1.1rem;
+  border-radius: 18px;
+  font-size: 0.97rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px var(--accent3);
+}
+.saved-blog-card button:hover {
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  box-shadow: 0 4px 16px var(--accent2);
+}
+.saved-blog-card .editBtn {
+  background: linear-gradient(90deg, #fffa65 0%, var(--accent) 100%);
+  color: #191654;
+}
+.saved-blog-card .editBtn:hover {
+  background: linear-gradient(90deg, var(--accent) 0%, #fffa65 100%);
+  color: #191654;
+}
+.saved-blog-card .deleteBtn {
+  background: linear-gradient(90deg, #ff5858 0%, #f09819 100%);
+  color: #fff;
+}
+.saved-blog-card .deleteBtn:hover {
+  background: linear-gradient(90deg, #f09819 0%, #ff5858 100%);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .saved-blogs-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .saved-blog-card {
+    max-width: 98vw;
+  }
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.1rem;
+    border-radius: 0 0 22px 22px;
+  }
+}
